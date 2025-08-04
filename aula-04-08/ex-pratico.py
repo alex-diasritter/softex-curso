@@ -1,0 +1,10 @@
+nString = input("Digite um nmr: ")
+nInt = int(nString)
+
+print(nInt + 2)
+print(nInt - 2)
+print(nInt * 2)
+print(nInt / 2)
+print(nInt // 2)
+print(nInt % 2)
+print(nInt**2) 
