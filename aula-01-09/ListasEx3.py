@@ -8,3 +8,5 @@ for numero in lista:
         if numero % 2 == 1 and numero not in primos and numero != 1:
             primos.append(numero)
 print(primos)
+
+#errado
