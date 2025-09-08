@@ -13,14 +13,12 @@ while True:
     elif n == "1":
         nome = input("Nome do contato: ")
         numero = input("Número: ")
-        contatos = {nome: numero}
+        contatos[nome] = numero
     elif n == "2":
         nomeBuscado = input("\nNome do contato: ")
         r = nomeBuscado in contatos
         if r:
-            print("\nContato encontrado.")
-            for nome, numero in contatos.items():
-                if nomeBuscado == nome:
-                    print(f"Contato: {nome}, Tel: {numero}")
+            print(f"\nContato: {nomeBuscado}, encontrado.")
+            print(f"Número: {contatos[nomeBuscado]}")
         else:
             print("Contato não encontrado.")
