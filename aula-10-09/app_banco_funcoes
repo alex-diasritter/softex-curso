@@ -1,0 +1,66 @@
+"""
+banco de dados em memória utilizando dicionário.
+"""
+def dados_banco() -> dict:
+    return {
+        "usuarios": {
+            "123456-7": {
+            "senha": "9999",
+            "nome": "Jose",
+            "saldo": 1500.00,
+            "limite_cheque_esoecial": 500.00,
+            },
+
+            },
+            "tentativas_login": 3,
+            "ultima_conta_base": 123456,
+            "digito_verificador": 7,
+}
+
+"""Autentiica o usuario com base na conta e senha. Retorna o status do usuario"""
+"""def NOME_FUNÇÃO (PARAMETROS_ENTRADA) -> TIPO RETORNO:"""
+def autenticar_usuario(
+        dados_banco: dict,
+        conta: str,
+        senha: str,
+        ) -> tuple[bool, dict | None]:
+
+    usuario_encontrado = dados_banco["usuarios"].get(conta, None)
+    if usuario_encontrado and usuario_encontrado["senha"] == senha:
+        return True,usuario_encontrado
+
+    return False, None # None é o mesmo que void
+
+def verificar_saldo(usuario: dict) -> None:
+    """mostra o saldo total do usuario"""
+    print(f"Seu saldo atual é de R$ {usuario["saldo"]:.2f}")
+    print(f"Seu limite de cheque especial é de R$ {usuario["limite_cheque_especial"]:.2f}")
+
+def cadastrar_cliente(dados_banco: dict) -> None:
+    """Cadastra usuário no banco de dados em memória."""
+    print("---- Novo cadastro de cliente ------")
+
+    ultima_conta = dados_banco["ultima_conta_base"]
+    nova_conta = int(ultima_conta) + 1
+
+    novo_numero_conta = f"{nova_conta}-{dados_banco["digito_verificador"]}"
+
+    if novo_numero_conta in dados_banco["usuarios"]:
+        print("Erro. Conta já cadastrada.")
+        return
+    
+    nova_senha = input("Defina uma senha para sua conta: ")
+    nome_cliente = input("Defina o nome do cliente: ")
+
+    dados_banco["usuarios"][novo_numero_conta] = {
+        "senha": nova_senha,
+        "nome": nome_cliente,
+        "saldo": 0.00,
+        "limite_cheque_especial": 500.00
+    }
+
+    dados_banco["ultima_conta_base"] = str(nova_conta)
+    print(f"O cliente: {nome_cliente}. Foi cadastrado na conta: {novo_numero_conta}.")
+
+
+

@@ -6,29 +6,28 @@ if lA.isdigit() and lB.isdigit() and lC.isdigit():
     lA = int(lA)
     lB = int(lB)
     lC = int(lC)
-
     if lA <= 0 or lB <= 0 or lC <= 0:
         print("Entradas inválidas. Os lados devem ser números positivos.")
 else:
     print("Entradas inválidas. Por favor, insira números inteiros positivos.")
 
-soma_ok = True
+soma = True
 if lA > lB + lC:
-    soma_ok = False
+    soma = False
 if lB > lA + lC:
-    soma_ok = False
+    soma = False
 if lC > lA + lB:
-    soma_ok = False
+    soma = False
 
-dif_ok = True
+dif = True
 if lA < abs(lB - lC):
-    dif_ok = False
+    dif = False
 if lB < abs(lA - lC):
-    dif_ok = False
+    dif = False
 if lC < abs(lA - lB):
-    dif_ok = False
+    dif = False
 
-if soma_ok and dif_ok:
+if soma and dif:
     print(f"Os lados {lA}, {lB} e {lC} PODEM formar um triângulo.")
 else:
     print(f"Os lados {lA}, {lB} e {lC} NÃO PODEM formar um triângulo.")
