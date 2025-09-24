@@ -1,5 +1,5 @@
 from typing import List
-from desafios_poo.avançado.Livro import Livro
+from modulo2.desafios_poo.avançado.Livro import Livro
 
 class Biblioteca:
     def __init__(self, acervo: List[Livro]):

@@ -1,4 +1,4 @@
-from desafios_poo.avançado.Motor import Motor
+from modulo2.desafios_poo.avançado.Motor import Motor
 
 class Carro:
     def __init__(self, modelo: str, potencia: Motor):
